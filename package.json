@@ -11,7 +11,9 @@
     "test": "karma start karma.conf.js",
     "posttest": "node_modules/.bin/remap-istanbul -i coverage/coverage-final.json -o coverage -t html",
     "coverage-remap": "remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.lcov -t lcovonly",
-    "coverage": "http-server -c-1 -o -p 9875 ./coverage"
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -64,9 +66,11 @@
     "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
     "@angular/platform-browser": "^2.0.0",
-    "lodash": "^4.0.0"
+    "lodash": "^4.0.0",
+    "snyk": "^1.316.1"
   },
   "peerDependencies": {
     "rxjs": "^5.0.0-beta.12"
-  }
+  },
+  "snyk": true
 }
